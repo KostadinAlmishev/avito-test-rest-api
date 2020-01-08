@@ -2,17 +2,15 @@ package io.avito.taskservice.repository;
 
 import io.avito.taskservice.entity.Task;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class TaskRepositoryTest {
 
     @Autowired
@@ -35,7 +33,6 @@ class TaskRepositoryTest {
         assertThat(task.getTitle().equals(saved.getTitle()));
         assertThat(task.getDescription().equals(saved.getDescription()));
         assertThat(task.getMainPictureLink().equals(saved.getMainPictureLink()));
-        // TODO check list
     }
 
 }

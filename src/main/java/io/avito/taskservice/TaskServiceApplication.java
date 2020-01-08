@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class TaskServiceApplication {
 
+    /*
     TaskService taskService ;
 
     @Autowired
@@ -18,7 +19,6 @@ public class TaskServiceApplication {
         this.taskService = taskService;
     }
 
-    /*
     @Bean
     CommandLineRunner init() {
         return args -> {
